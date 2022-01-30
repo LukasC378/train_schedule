@@ -1,0 +1,12 @@
+Kúty/Sekule
+Sekule/Moravský Svätý Ján
+Moravský Svätý Ján/Závod
+Závod/Veľké Leváre
+Veľké Leváre/Malacky
+Malacky/Plavecký Štvrtok
+Plavecký Štvrtok/Zohor
+Zohor/Devínske Jazero
+Devínske Jazero/Devínska N.Ves
+Devínska N.Ves/Bratislava-Lamač
+Bratislava-Lamač/Bratislava-Železná studienka
+Bratislava-Železná studienka/Bratislava hl.st.

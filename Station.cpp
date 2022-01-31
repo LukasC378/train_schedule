@@ -8,12 +8,12 @@ Station::Station(const string &name) {
     this->name = "EMPTY_NAME";
 }
 
-void Station::addTrain(const int &train, const experimental::optional<Time> &arrival, const experimental::optional<Time> &departure) {
+void Station::addTrain(const int &train, const Time &arrival, const Time &departure) {
     Time keyTime;
-    if(arrival != experimental::nullopt)
-        keyTime = arrival->ceil();
+    if(arrival.getTime() != "null")
+        keyTime = arrival.ceil();
     else
-        keyTime = departure->ceil();
+        keyTime = departure.ceil();
     TrainView trainView(train, arrival, departure);
     if(trainTable.find(keyTime) == trainTable.end()){
         vector<TrainView> list;
@@ -24,7 +24,7 @@ void Station::addTrain(const int &train, const experimental::optional<Time> &arr
     trainTable[keyTime].emplace_back(trainView);
 }
 
-void Station::addAdjacent(const Station &station) {
+void Station::addAdjacent(Station *station) {
     this->adjacent.push_back(station);
 }
 

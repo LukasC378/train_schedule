@@ -66,3 +66,52 @@ TEST(TrainTest6, ReadFile){
     p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\trains.txt)");
     ASSERT_EQ(39, p.numberOfTrains());
 }
+
+TEST(TrainTest7, ReadFile){
+    Program p;
+    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Kuty_Ba.txt)");
+    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Ba_Trnava.txt)");
+    p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\trains2.txt)");
+    ASSERT_EQ(39, p.numberOfTrains());
+}
+
+TEST(TrainTest8, Stations){
+    Program p;
+    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Kuty_Ba.txt)");
+    p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\testTrains.txt)");
+    Train t;
+    t = p.getTrain(2041);
+    experimental::optional<StationView> s;
+    s = t.getStation(0);
+    ASSERT_EQ(t.getId(), 2041);
+    ASSERT_EQ(t.numberOfStations(), 8);
+    ASSERT_EQ(s->getStationName(), "Malacky");
+    ASSERT_EQ(s->getArrival().getTime(), "null");
+    ASSERT_EQ(s->getDeparture().getTime(), "7:04");
+}
+
+TEST(TrainTest9, UnknownStation){
+    Program p;
+    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Kuty_Ba.txt)");
+    p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\testTrains.txt)");
+    Train t;
+    t = p.getTrain(2041);
+    experimental::optional<StationView> s;
+    s = t.getStation(-1);
+    ASSERT_EQ(s, experimental::nullopt);
+}
+
+TEST(TrainTest9, UnknownTrain){
+    string ex;
+    Program p;
+    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Kuty_Ba.txt)");
+    p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\testTrains.txt)");
+    Train t;
+    try {
+        t = p.getTrain(0);
+    }
+    catch (WrongTrain &e){
+        ex = e.message();
+    }
+    ASSERT_EQ(ex, "Unknown train 0");
+}

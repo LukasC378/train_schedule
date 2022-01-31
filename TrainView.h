@@ -8,10 +8,10 @@
 
 class TrainView {
     int trainId;
-    experimental::optional<Time> arrival;
-    experimental::optional<Time> departure;
+    Time arrival;
+    Time departure;
 public:
-    TrainView(const int &trainId, const experimental::optional<Time> &arrival, const experimental::optional<Time> &departure);
+    TrainView(const int &trainId, const Time &arrival, const Time &departure);
 };
 
 

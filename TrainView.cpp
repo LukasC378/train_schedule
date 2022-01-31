@@ -1,8 +1,8 @@
 #include "TrainView.h"
 #include "Errors.h"
 
-TrainView::TrainView(const int &trainId, const experimental::optional<Time> &arrival, const experimental::optional<Time> &departure) {
-    if(arrival != experimental::nullopt && departure != experimental::nullopt){
+TrainView::TrainView(const int &trainId, const Time &arrival, const Time &departure) {
+    if(arrival.getTime() != "null" && departure.getTime() != "null"){
         if(departure < arrival){
             throw WrongTime("Arrival greater than departure");
         }

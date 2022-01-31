@@ -1,0 +1,493 @@
+Os/2046
+null/6:42/Pezinok
+6:44/6:45/Pezinok zast.
+6:48/6:49/Svätý Jur
+6:53/6:54/Bratislava-Rača
+6:57/6:59/Bratislava-Vinohrady
+7:05/7:18/Bratislava hl.st.
+7:23/7:24/Bratislava-Železná studienka
+7:26/7:27/Bratislava-Lamač
+7:33/7:34/Devínska N.Ves
+7:37/7:38/Devínske Jazero
+7:44/7:45/Zohor
+7:49/7:50/Plavecký Štvrtok
+7:56/null/Malacky
+
+Os/2008
+null/6:55/Trnava
+7:02/7:03/Cífer
+null/7:06/Báhoň
+7:12/7:13/Šenkvice
+7:18/7:19/Pezinok
+null/7:22/Pezinok zast.
+7:25/7:26/Svätý Jur
+7:30/7:31/Bratislava-Rača
+7:35/7:36/Bratislava-Vinohrady
+7:41/7:43/Bratislava hl.st.
+null/7:48/Bratislava-Železná studienka
+null/7:51/Bratislava-Lamač
+null/7:57/Devínska N.Ves
+null/8:01/Devínske Jazero
+8:09/8:10/Zohor
+8:15/8:16/Plavecký Štvrtok
+8:24/8:25/Malacky
+8:33/8:41/Veľké Leváre
+null/8:44/Závod
+8:48/8:49/Moravský Svätý Ján
+8:51/8:52/Sekule
+8:58/null/Kúty
+
+Os/2010
+null/7:55/Trnava
+8:02/8:03/Cífer
+null/8:06/Báhoň
+8:12/8:13/Šenkvice
+8:18/8:19/Pezinok
+null/8:22/Pezinok zast.
+8:25/8:26/Svätý Jur
+8:30/8:31/Bratislava-Rača
+8:35/8:36/Bratislava-Vinohrady
+8:41/8:43/Bratislava hl.st.
+null/8:48/Bratislava-Železná studienka
+null/8:51/Bratislava-Lamač
+null/8:57/Devínska N.Ves
+null/9:01/Devínske Jazero
+9:09/9:10/Zohor
+9:15/9:16/Plavecký Štvrtok
+9:24/9:25/Malacky
+9:33/9:41/Veľké Leváre
+null/9:44/Závod
+9:48/9:49/Moravský Svätý Ján
+9:51/9:52/Sekule
+9:58/null/Kúty
+
+Os/2012
+null/8:55/Trnava
+9:02/9:03/Cífer
+null/9:06/Báhoň
+9:12/9:13/Šenkvice
+9:18/9:19/Pezinok
+null/9:22/Pezinok zast.
+9:25/9:26/Svätý Jur
+9:30/9:31/Bratislava-Rača
+9:35/9:36/Bratislava-Vinohrady
+9:41/9:43/Bratislava hl.st.
+null/9:48/Bratislava-Železná studienka
+null/9:51/Bratislava-Lamač
+null/9:57/Devínska N.Ves
+null/10:01/Devínske Jazero
+10:09/10:10/Zohor
+10:15/10:16/Plavecký Štvrtok
+10:24/10:25/Malacky
+10:33/10:41/Veľké Leváre
+null/10:44/Závod
+10:48/10:49/Moravský Svätý Ján
+10:51/10:52/Sekule
+10:58/null/Kúty
+
+Os/2014
+null/9:55/Trnava
+10:02/10:03/Cífer
+null/10:06/Báhoň
+10:12/10:13/Šenkvice
+10:18/10:19/Pezinok
+null/10:22/Pezinok zast.
+10:25/10:26/Svätý Jur
+10:30/10:31/Bratislava-Rača
+10:35/10:36/Bratislava-Vinohrady
+10:41/10:43/Bratislava hl.st.
+null/10:48/Bratislava-Železná studienka
+null/10:51/Bratislava-Lamač
+null/10:57/Devínska N.Ves
+null/11:01/Devínske Jazero
+11:09/11:10/Zohor
+11:15/11:16/Plavecký Štvrtok
+11:24/11:25/Malacky
+11:33/11:41/Veľké Leváre
+null/11:44/Závod
+11:48/11:49/Moravský Svätý Ján
+11:51/11:52/Sekule
+11:58/null/Kúty
+
+Os/2016
+null/10:55/Trnava
+11:02/11:03/Cífer
+null/11:06/Báhoň
+11:12/11:13/Šenkvice
+11:18/11:19/Pezinok
+null/11:22/Pezinok zast.
+11:25/11:26/Svätý Jur
+11:30/11:31/Bratislava-Rača
+11:35/11:36/Bratislava-Vinohrady
+11:41/11:43/Bratislava hl.st.
+null/11:48/Bratislava-Železná studienka
+null/11:51/Bratislava-Lamač
+null/11:57/Devínska N.Ves
+null/12:01/Devínske Jazero
+12:09/12:10/Zohor
+12:15/12:16/Plavecký Štvrtok
+12:24/12:25/Malacky
+12:33/12:41/Veľké Leváre
+null/12:44/Závod
+12:48/12:49/Moravský Svätý Ján
+12:51/12:52/Sekule
+12:58/null/Kúty
+
+Os/2018
+null/11:55/Trnava
+12:02/12:03/Cífer
+null/12:06/Báhoň
+12:12/12:13/Šenkvice
+12:18/12:19/Pezinok
+null/12:22/Pezinok zast.
+12:25/12:26/Svätý Jur
+12:30/12:31/Bratislava-Rača
+12:35/12:36/Bratislava-Vinohrady
+12:41/12:43/Bratislava hl.st.
+null/12:48/Bratislava-Železná studienka
+null/12:51/Bratislava-Lamač
+null/12:57/Devínska N.Ves
+null/13:01/Devínske Jazero
+13:09/13:10/Zohor
+13:15/13:16/Plavecký Štvrtok
+13:24/13:25/Malacky
+13:33/13:41/Veľké Leváre
+null/13:44/Závod
+13:48/13:49/Moravský Svätý Ján
+13:51/13:52/Sekule
+13:58/null/Kúty
+
+Os/2048
+null/13:18/Bratislava hl.st.
+13:23/13:24/Bratislava-Železná studienka
+13:26/13:27/Bratislava-Lamač
+13:33/13:34/Devínska N.Ves
+13:37/13:38/Devínske Jazero
+13:44/13:45/Zohor
+13:49/13:50/Plavecký Štvrtok
+13:56/null/Malacky
+
+Os/2020
+null/12:55/Trnava
+13:02/13:03/Cífer
+null/13:06/Báhoň
+13:12/13:13/Šenkvice
+13:18/13:19/Pezinok
+null/13:22/Pezinok zast.
+13:25/13:26/Svätý Jur
+13:30/13:31/Bratislava-Rača
+13:35/13:36/Bratislava-Vinohrady
+13:41/13:43/Bratislava hl.st.
+null/13:48/Bratislava-Železná studienka
+null/13:51/Bratislava-Lamač
+null/13:57/Devínska N.Ves
+null/14:01/Devínske Jazero
+14:09/14:10/Zohor
+14:15/14:16/Plavecký Štvrtok
+14:24/14:25/Malacky
+14:33/14:41/Veľké Leváre
+null/14:44/Závod
+14:48/14:49/Moravský Svätý Ján
+14:51/14:52/Sekule
+14:58/null/Kúty
+
+Os/2022
+null/13:55/Trnava
+14:02/14:03/Cífer
+null/14:06/Báhoň
+14:12/14:13/Šenkvice
+14:18/14:19/Pezinok
+null/14:22/Pezinok zast.
+14:25/14:26/Svätý Jur
+14:30/14:31/Bratislava-Rača
+14:35/14:36/Bratislava-Vinohrady
+14:41/14:43/Bratislava hl.st.
+null/14:48/Bratislava-Železná studienka
+null/14:51/Bratislava-Lamač
+null/14:57/Devínska N.Ves
+null/15:01/Devínske Jazero
+15:09/15:10/Zohor
+15:15/15:16/Plavecký Štvrtok
+15:24/15:25/Malacky
+15:33/15:41/Veľké Leváre
+null/15:44/Závod
+15:48/15:49/Moravský Svätý Ján
+15:51/15:52/Sekule
+15:58/null/Kúty
+
+Os/2024
+null/14:55/Trnava
+15:02/15:03/Cífer
+null/15:06/Báhoň
+15:12/15:13/Šenkvice
+15:18/15:19/Pezinok
+null/15:22/Pezinok zast.
+15:25/15:26/Svätý Jur
+15:30/15:31/Bratislava-Rača
+15:35/15:36/Bratislava-Vinohrady
+15:41/15:43/Bratislava hl.st.
+null/15:48/Bratislava-Železná studienka
+null/15:51/Bratislava-Lamač
+null/15:57/Devínska N.Ves
+null/16:01/Devínske Jazero
+16:09/16:10/Zohor
+16:15/16:16/Plavecký Štvrtok
+16:24/16:25/Malacky
+16:33/16:41/Veľké Leváre
+null/16:44/Závod
+16:48/16:49/Moravský Svätý Ján
+16:51/16:52/Sekule
+16:58/null/Kúty
+
+Os/2026
+null/15:55/Trnava
+16:02/16:03/Cífer
+null/16:06/Báhoň
+16:12/16:13/Šenkvice
+16:18/16:19/Pezinok
+null/16:22/Pezinok zast.
+16:25/16:26/Svätý Jur
+16:30/16:31/Bratislava-Rača
+16:35/16:36/Bratislava-Vinohrady
+16:41/16:43/Bratislava hl.st.
+null/16:48/Bratislava-Železná studienka
+null/16:51/Bratislava-Lamač
+null/16:57/Devínska N.Ves
+null/17:01/Devínske Jazero
+17:09/17:10/Zohor
+17:15/17:16/Plavecký Štvrtok
+17:24/17:25/Malacky
+17:33/17:41/Veľké Leváre
+null/17:44/Závod
+17:48/17:49/Moravský Svätý Ján
+17:51/17:52/Sekule
+17:58/null/Kúty
+
+Os/2028
+null/16:55/Trnava
+17:02/17:03/Cífer
+null/17:06/Báhoň
+17:12/17:13/Šenkvice
+17:18/17:19/Pezinok
+null/17:22/Pezinok zast.
+17:25/17:26/Svätý Jur
+17:30/17:31/Bratislava-Rača
+17:35/17:36/Bratislava-Vinohrady
+17:41/17:43/Bratislava hl.st.
+null/17:48/Bratislava-Železná studienka
+null/17:51/Bratislava-Lamač
+null/17:57/Devínska N.Ves
+null/18:01/Devínske Jazero
+18:09/18:10/Zohor
+18:15/18:16/Plavecký Štvrtok
+18:24/18:25/Malacky
+18:33/18:41/Veľké Leváre
+null/18:44/Závod
+18:48/18:49/Moravský Svätý Ján
+18:51/18:52/Sekule
+18:58/null/Kúty
+
+Os/2030
+null/17:55/Trnava
+18:02/18:03/Cífer
+null/18:06/Báhoň
+18:12/18:13/Šenkvice
+18:18/18:19/Pezinok
+null/18:22/Pezinok zast.
+18:25/18:26/Svätý Jur
+18:30/18:31/Bratislava-Rača
+18:35/18:36/Bratislava-Vinohrady
+18:41/18:43/Bratislava hl.st.
+null/18:48/Bratislava-Železná studienka
+null/18:51/Bratislava-Lamač
+null/18:57/Devínska N.Ves
+null/19:01/Devínske Jazero
+19:09/19:10/Zohor
+19:15/19:16/Plavecký Štvrtok
+19:24/19:25/Malacky
+19:33/19:41/Veľké Leváre
+null/19:44/Závod
+19:48/19:49/Moravský Svätý Ján
+19:51/19:52/Sekule
+19:58/null/Kúty
+
+Os/2032
+null/18:55/Trnava
+19:02/19:03/Cífer
+null/19:06/Báhoň
+19:12/19:13/Šenkvice
+19:18/19:19/Pezinok
+null/19:22/Pezinok zast.
+19:25/19:26/Svätý Jur
+19:30/19:31/Bratislava-Rača
+19:35/19:36/Bratislava-Vinohrady
+19:41/19:43/Bratislava hl.st.
+null/19:48/Bratislava-Železná studienka
+null/19:51/Bratislava-Lamač
+null/19:57/Devínska N.Ves
+null/20:01/Devínske Jazero
+20:09/20:10/Zohor
+20:15/20:16/Plavecký Štvrtok
+20:24/20:25/Malacky
+20:33/20:41/Veľké Leváre
+null/20:44/Závod
+20:48/20:49/Moravský Svätý Ján
+20:51/20:52/Sekule
+20:58/null/Kúty
+
+Os/2034
+null/19:55/Trnava
+20:02/20:03/Cífer
+null/20:06/Báhoň
+20:12/20:13/Šenkvice
+20:18/20:19/Pezinok
+null/20:22/Pezinok zast.
+20:25/20:26/Svätý Jur
+20:30/20:31/Bratislava-Rača
+20:35/20:36/Bratislava-Vinohrady
+20:41/20:43/Bratislava hl.st.
+null/20:48/Bratislava-Železná studienka
+null/20:51/Bratislava-Lamač
+null/20:57/Devínska N.Ves
+null/21:01/Devínske Jazero
+21:09/21:10/Zohor
+21:15/21:16/Plavecký Štvrtok
+21:24/21:25/Malacky
+21:33/21:41/Veľké Leváre
+null/21:44/Závod
+21:48/21:49/Moravský Svätý Ján
+21:51/21:52/Sekule
+21:58/null/Kúty
+
+Os/2050
+null/14:18/Bratislava hl.st.
+14:23/14:24/Bratislava-Železná studienka
+14:26/14:27/Bratislava-Lamač
+14:33/14:34/Devínska N.Ves
+14:37/14:38/Devínske Jazero
+14:44/14:45/Zohor
+14:49/14:50/Plavecký Štvrtok
+14:56/null/Malacky
+
+Os/2052
+null/15:18/Bratislava hl.st.
+15:23/15:24/Bratislava-Železná studienka
+15:26/15:27/Bratislava-Lamač
+15:33/15:34/Devínska N.Ves
+15:37/15:38/Devínske Jazero
+15:44/15:45/Zohor
+15:49/15:50/Plavecký Štvrtok
+15:56/null/Malacky
+
+Os/2054
+null/16:18/Bratislava hl.st.
+16:23/16:24/Bratislava-Železná studienka
+16:26/16:27/Bratislava-Lamač
+16:33/16:34/Devínska N.Ves
+16:37/16:38/Devínske Jazero
+16:44/16:45/Zohor
+16:49/16:50/Plavecký Štvrtok
+16:56/null/Malacky
+
+Os/2056
+null/17:18/Bratislava hl.st.
+17:23/17:24/Bratislava-Železná studienka
+17:26/17:27/Bratislava-Lamač
+17:33/17:34/Devínska N.Ves
+17:37/17:38/Devínske Jazero
+17:44/17:45/Zohor
+17:49/17:50/Plavecký Štvrtok
+17:56/null/Malacky
+
+Os/2058
+null/18:18/Bratislava hl.st.
+18:23/18:24/Bratislava-Železná studienka
+18:26/18:27/Bratislava-Lamač
+18:33/18:34/Devínska N.Ves
+18:37/18:38/Devínske Jazero
+18:44/18:45/Zohor
+18:49/18:50/Plavecký Štvrtok
+18:56/null/Malacky
+
+RR/706/POVAŽAN
+8:15/8:18/Trnava
+8:39/8:41/Bratislava-Vinohrady
+8:47/null/Bratislava hl.st.
+
+RR/708/POVAŽAN
+10:15/10:18/Trnava
+10:39/10:41/Bratislava-Vinohrady
+10:47/null/Bratislava hl.st.
+
+RR/710/POVAŽAN
+12:15/12:18/Trnava
+12:39/12:41/Bratislava-Vinohrady
+12:47/null/Bratislava hl.st.
+
+RR/712/POVAŽAN
+14:15/14:18/Trnava
+14:39/14:41/Bratislava-Vinohrady
+14:47/null/Bratislava hl.st.
+
+RR/714/POVAŽAN
+16:15/16:18/Trnava
+16:39/16:41/Bratislava-Vinohrady
+16:47/null/Bratislava hl.st.
+
+RR/716/POVAŽAN
+18:15/18:18/Trnava
+18:39/18:41/Bratislava-Vinohrady
+18:47/null/Bratislava hl.st.
+
+R/600/TATRAN
+9:15/9:18/Trnava
+9:39/9:41/Bratislava-Vinohrady
+9:47/null/Bratislava hl.st.
+
+R/602/TATRAN
+11:15/11:18/Trnava
+11:39/11:41/Bratislava-Vinohrady
+11:47/null/Bratislava hl.st.
+
+R/604/TATRAN
+13:15/13:18/Trnava
+13:39/13:41/Bratislava-Vinohrady
+13:47/null/Bratislava hl.st.
+
+R/606/TATRAN
+15:15/15:18/Trnava
+15:39/15:41/Bratislava-Vinohrady
+15:47/null/Bratislava hl.st.
+
+R/608/TATRAN
+17:15/17:18/Trnava
+17:39/17:41/Bratislava-Vinohrady
+17:47/null/Bratislava hl.st.
+
+EC/280/Metropolitan
+8:03/8:06/Bratislava hl.st.
+8:47/8:49/Kúty
+
+EC/286/Hungaria
+10:03/10:06/Bratislava hl.st.
+10:47/10:49/Kúty
+
+EC/130/Bathory
+10:54/10:57/Bratislava hl.st.
+11:43/11:48/Kúty
+
+EC/278/Metropolitan
+12:03/12:06/Bratislava hl.st.
+12:47/12:49/Kúty
+
+EC/276/Metropolitan
+14:03/14:06/Bratislava hl.st.
+14:47/14:49/Kúty
+
+EC/274/Metropolitan
+16:03/16:06/Bratislava hl.st.
+16:47/16:49/Kúty
+
+EC/272/Metropolitan
+18:03/18:06/Bratislava hl.st.
+18:47/18:49/Kúty

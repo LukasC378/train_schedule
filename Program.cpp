@@ -47,8 +47,8 @@ void Program::station_init(const string &fileName) {
 #pragma region adjacent
         Station *s1 = &stations.find(stationName1)->second;
         Station *s2 = &stations.find(stationName2)->second;
-        s1->addAdjacent(*s2);
-        s2->addAdjacent(*s1);
+        s1->addAdjacent(s2);
+        s2->addAdjacent(s1);
 #pragma endregion
     }
     readFile.close();
@@ -59,8 +59,8 @@ void Program::train_init(const string &info) {
     string trainType;
     int trainId;
     string trainName;
-    experimental::optional<Time> arrival;
-    experimental::optional<Time> departure;
+    Time arrival;
+    Time departure;
     Train train;
 #pragma endregion
 
@@ -97,22 +97,19 @@ void Program::train_init(const string &info) {
         istringstream lineStream1(text);
         while(getline(lineStream1, line, '/')){
             if(j == 0){
-                if(line == "null")
-                    arrival = experimental::nullopt;
-                else
-                    arrival->putTime(line);
+                    arrival.putTime(line);
             }
             else if(j == 1){
-                if(line == "null")
-                    departure = experimental::nullopt;
-                else
-                    departure->putTime(line);
+                    departure.putTime(line);
             }
             else if(j == 2){
                 stationName = line;
                 if(stations.find(line) == stations.end()){
                     string ex = "Unknown station " + stationName;
                     throw WrongStation(ex.c_str());
+                }
+                if(arrival.getTime() == "null" && departure.getTime() == "null"){
+                    throw WrongTime("arrival and departure are null");
                 }
                 try {
                     train.addStationView(stationName, arrival, departure);
@@ -130,7 +127,7 @@ void Program::train_init(const string &info) {
 #pragma endregion
 
 #pragma region push train
-    trains.emplace_back(train);
+    trains[trainId] = train;
 #pragma endregion
 }
 
@@ -151,11 +148,11 @@ void Program::trains_init(const string &fileName) {
         throw WrongInputFile("train file connection failed");
     }
     while (getline (readFile, line)){
-        if(line == "\n" || line == "\r" || readFile.eof()){
+        if(line == "\n" || line == "\r" || line == "" || readFile.eof()){
             try {
                 train_init(info);
             }
-            catch(exception e){
+            catch(exception &e){
                 continue;
             }
             info = "";
@@ -165,6 +162,11 @@ void Program::trains_init(const string &fileName) {
             info += line + '\n';
         }
     }
+    try {
+        if(info != "")
+            train_init(info);
+    }
+    catch(exception &e){}
 }
 
 void Program::getRequest() {
@@ -175,13 +177,72 @@ string Program::findTransport() {
     return string();
 }
 
-Station Program::getStation(const string &name) {
-    if(stations.at(name).getName() == stations.end()->second.getName()){
+Station* Program::getStation(const string &name) {
+    if(stations.find(name) == stations.end()){
         string ex = "Unknown station " + name;
         throw WrongStation(ex.c_str());
     }
-    return stations.at(name);
+    return &stations.at(name);
 }
+
+Train Program::getTrain(const int &trainId) {
+    if(trains.find(trainId)->second.getId() == trains.end()->second.getId()){
+        string ex = "Unknown train " + to_string(trainId);
+        throw WrongTrain(ex.c_str());
+    }
+    return trains.at(trainId);
+}
+
+bool backtracking(const Station* station1, const Station* station2, set<string> &visited, vector<string> &route){
+    route.push_back(station1->getName());
+    if(station1->getName() == station2->getName()){
+        return true;
+    }
+    visited.emplace(station1->getName());
+    for(auto &i : station1->getAdjacent()){
+        if(!visited.contains(i->getName())){
+            bool found = backtracking(i, station2, visited, route);
+            if(found) return true;
+        }
+    }
+    visited.erase(station1->getName());
+    route.pop_back();
+    return false;
+}
+
+vector<string> Program::getRoute(const string &stationName1, const string &stationName2) {
+#pragma region init stations
+    vector<string> route;
+    Station *station1;
+    Station *station2;
+    try{
+        station1 = getStation(stationName1);
+        station2 = getStation(stationName2);
+    }
+    catch (WrongStation){
+        return route;
+    }
+#pragma endregion
+
+#pragma region backtracking
+    set<string> visited;
+    backtracking(station1, station2, visited, route);
+#pragma endregion
+
+    return route;
+}
+
+string Program::getRouteString(const string &stationName1, const string &stationName2) {
+    string output;
+    vector<string> vector = getRoute(stationName1, stationName2);
+    for(auto &i : vector){
+        output += i + "->";
+    }
+    return output.substr(0, output.size() - 2);
+}
+
+
+
 
 
 

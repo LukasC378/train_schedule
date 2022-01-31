@@ -17,14 +17,15 @@ using namespace std;
 class Station {
     string name = "EMPTY_NAME";
     map<Time, vector<TrainView>> trainTable;
-    vector<Station> adjacent;
+    vector<Station*> adjacent;
 
 public:
     Station()= default;
     explicit Station(const string &name);
-    string getName(){return name;};
-    void addAdjacent(const Station &station);
-    void addTrain(const int &train, const experimental::optional<Time> &arrival, const experimental::optional<Time> &departure);
+    string getName() const {return name;};
+    void addAdjacent(Station *station);
+    vector<Station*> getAdjacent() const { return adjacent; };
+    void addTrain(const int &train, const Time &arrival, const Time &departure);
 };
 
 

@@ -10,11 +10,15 @@ using namespace std;
 
 class StationView {
     string stationName;
-    experimental::optional<Time> arrival;
-    experimental::optional<Time> departure;
+    Time arrival;
+    Time departure;
 public:
-    StationView(const string &stationName, const experimental::optional<Time> &arrival,
-                const experimental::optional<Time> &departure);
+    StationView()= default;
+    StationView(const string &stationName, const Time &arrival,
+                const Time &departure);
+    string getStationName(){ return stationName; };
+    Time getArrival(){ return arrival; };
+    Time getDeparture(){ return departure; };
 };
 
 #endif //PROJECT_STATIONVIEW_H

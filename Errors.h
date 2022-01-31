@@ -28,4 +28,9 @@ public:
     WrongStation(const char *v) : WrongInput(v) {};
 };
 
+class WrongTrain : public WrongInput{
+public:
+    WrongTrain(const char *v) : WrongInput(v) {};
+};
+
 #endif //PROJECT_ERRORS_H

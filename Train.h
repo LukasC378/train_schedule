@@ -17,10 +17,12 @@ public:
     Train(const int &id, const string &name, const string &trainType);
     Train(){};
 
-    void addStationView(const string &stationName, const experimental::optional<Time> &arrival, const experimental::optional<Time> &departure);
+    void addStationView(const string &stationName, const Time &arrival, const Time &departure);
     string getName(){return name;};
     int getId(){return id;}
     int numberOfStations();
+    experimental::optional<StationView> getStation(const int &index);
+    string getStations();
 };
 
 

@@ -23,6 +23,11 @@ bool Time::operator<(const Time &t2) const {
 }
 
 void Time::putTime(const string &time) {
+    if(time == "null"){
+        hour = -999;
+        minute = -999;
+        return;
+    }
     istringstream stream(time);
     int h;
     char del;
@@ -41,8 +46,17 @@ void Time::putTime(const string &time) {
     throw WrongTime("Wrong format");
 }
 
-string Time::getTime() {
-    return to_string(hour) + ':' + to_string(minute);
+string Time::getTime() const{
+    if(hour == -999 && minute == -999)
+        return "null";
+    string m;
+    if(minute < 10){
+        m = '0' + to_string(minute);
+    }
+    else{
+        m = to_string(minute);
+    }
+    return to_string(hour) + ':' + m;
 }
 
 Time Time::ceil() const{

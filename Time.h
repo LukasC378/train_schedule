@@ -23,7 +23,7 @@ public:
 
     bool operator<(const Time &t2) const;
 
-    string getTime();
+    string getTime() const;
     Time ceil() const;
 };
 

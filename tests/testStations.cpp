@@ -1,6 +1,7 @@
 #include "../gtest/gtest.h"
 
 #include "../Program.h"
+#include "../Errors.h"
 
 using namespace ::testing;
 
@@ -31,6 +32,20 @@ TEST(StationTest5, ReadFromFile){
     p.station_init("C:\\Users\\lucau\\CLionProjects\\Project\\textFiles\\track_Kuty_Ba.txt");
     p.station_init("C:\\Users\\lucau\\CLionProjects\\Project\\textFiles\\track_Ba_Trnava.txt");
     ASSERT_EQ(p.numberOfStations(), 22);
+}
+
+TEST(StationTest6, UnknownStation){
+    string ex;
+    Program p;
+    p.station_init("C:\\Users\\lucau\\CLionProjects\\Project\\textFiles\\track_Kuty_Ba.txt");
+    p.station_init("C:\\Users\\lucau\\CLionProjects\\Project\\textFiles\\track_Ba_Trnava.txt");
+    try {
+        p.getStation("XXX");
+    }
+    catch(WrongStation &e){
+        ex = e.message();
+    }
+    ASSERT_EQ("Unknown station XXX", ex);
 }
 
 

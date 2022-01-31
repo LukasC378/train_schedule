@@ -27,3 +27,23 @@ null/7:21/Devínske Jazero
 7:32/7:33/Bratislava-Lamač
 7:35/7:36/Bratislava-Železná studienka
 7:42/null/Bratislava hl.st.
+
+Os/2045
+null/7:98/Malacky
+null/7:09/Plavecký Štvrtok
+7:14/7:15/Zohor
+null/7:21/Devínske Jazero
+7:25/7:26/Devínska N.Ves
+7:32/7:33/Bratislava-Lamač
+7:35/7:36/Bratislava-Železná studienka
+7:42/null/Bratislava hl.st.
+
+Os/2045
+null/7:04/XXX
+null/7:09/Plavecký Štvrtok
+7:14/7:15/Zohor
+null/7:21/Devínske Jazero
+7:25/7:26/Devínska N.Ves
+7:32/7:33/Bratislava-Lamač
+7:35/7:36/Bratislava-Železná studienka
+7:42/null/Bratislava hl.st.

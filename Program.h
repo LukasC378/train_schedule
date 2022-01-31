@@ -25,7 +25,7 @@ public:
 
     int numberOfTrains();
 
-    Station* getStation(const string &name);
+    Station getStation(const string &name);
 
     Train getTrain(const int &trainId);
 

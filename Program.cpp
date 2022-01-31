@@ -177,12 +177,12 @@ string Program::findTransport() {
     return string();
 }
 
-Station* Program::getStation(const string &name) {
+Station Program::getStation(const string &name) {
     if(stations.find(name) == stations.end()){
         string ex = "Unknown station " + name;
         throw WrongStation(ex.c_str());
     }
-    return &stations.at(name);
+    return stations.at(name);
 }
 
 Train Program::getTrain(const int &trainId) {
@@ -193,19 +193,19 @@ Train Program::getTrain(const int &trainId) {
     return trains.at(trainId);
 }
 
-bool backtracking(const Station* station1, const Station* station2, set<string> &visited, vector<string> &route){
-    route.push_back(station1->getName());
-    if(station1->getName() == station2->getName()){
+bool backtracking(const Station station1, const Station station2, set<string> &visited, vector<string> &route){
+    route.push_back(station1.getName());
+    if(station1.getName() == station2.getName()){
         return true;
     }
-    visited.emplace(station1->getName());
-    for(auto &i : station1->getAdjacent()){
+    visited.emplace(station1.getName());
+    for(auto &i : station1.getAdjacent()){
         if(!visited.contains(i->getName())){
-            bool found = backtracking(i, station2, visited, route);
+            bool found = backtracking(*i, station2, visited, route);
             if(found) return true;
         }
     }
-    visited.erase(station1->getName());
+    visited.erase(station1.getName());
     route.pop_back();
     return false;
 }
@@ -213,8 +213,8 @@ bool backtracking(const Station* station1, const Station* station2, set<string> 
 vector<string> Program::getRoute(const string &stationName1, const string &stationName2) {
 #pragma region init stations
     vector<string> route;
-    Station *station1;
-    Station *station2;
+    Station station1;
+    Station station2;
     try{
         station1 = getStation(stationName1);
         station2 = getStation(stationName2);

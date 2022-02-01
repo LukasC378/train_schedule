@@ -23,6 +23,8 @@ public:
     int numberOfStations();
     experimental::optional<StationView> getStation(const int &index);
     string getStations();
+    bool containsStation (const string &stationName);
+    int getIndexOfStation (const string &stationName);
 };
 
 

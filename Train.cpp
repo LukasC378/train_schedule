@@ -38,3 +38,19 @@ string Train::getStations() {
     }
     return output.substr(0, output.size() - 2);
 }
+
+bool Train::containsStation(const string &stationName) {
+    for(auto &i : stations){
+        if(i.getStationName() == stationName)
+            return true;
+    }
+    return false;
+}
+
+int Train::getIndexOfStation(const string &stationName) {
+    for(int i = 0; i < stations.size(); i++){
+        if(stations[i].getStationName() == stationName)
+            return i;
+    }
+    return -1;
+}

@@ -169,10 +169,6 @@ void Program::trains_init(const string &fileName) {
     catch(exception &e){}
 }
 
-void Program::getRequest() {
-
-}
-
 string Program::findTransport() {
     return string();
 }
@@ -240,6 +236,70 @@ string Program::getRouteString(const string &stationName1, const string &station
     }
     return output.substr(0, output.size() - 2);
 }
+
+bool checkTrain(const string &stationName1, const string &stationName2, Train &train, const vector<string> &route){
+    if(train.containsStation(stationName2)){
+        //code
+        return true;
+    }
+    else{
+        int indexOfCurrentStation = train.getIndexOfStation(stationName1);
+        //if current station in train
+        if(indexOfCurrentStation == -1)
+            return false;
+        experimental::optional<StationView> nextStationView = train.getStation(indexOfCurrentStation + 1);
+        //if train has next station
+        if(nextStationView == experimental::nullopt)
+            return false;
+        //next station of train in route
+        string nextStationName = nextStationView->getStationName();
+        if(find(route.begin(), route.end(), nextStationName) == route.end())
+            return false;
+        // recursively call function
+        //function(nextStationName, stationName2, nextStationView->getDeparture())
+    }
+}
+
+bool findTrains(const string &stationName1, const string &stationName2, const string &timeString, const vector<string> &route,
+                       vector<int> correctTrains){
+    Station station1 = Program::getStation(stationName1);
+    vector<int> trainsId = station1.getTrainsInTime(timeString);
+    for(auto &id : trainsId){
+        Train t = Program::getTrain(id);
+        // check train
+        }
+    }
+}
+
+void Program::getRequest(const string &stationName1, const string &stationName2, const string &timeString) {
+    vector<string> route = getRoute(stationName1, stationName2);
+    Station station1 = getStation(stationName1);
+    vector<int> trainsId = station1.getTrainsInTime(timeString);
+    for(auto &id : trainsId){
+        Train t = getTrain(id);
+        if(t.containsStation(stationName2)){
+
+        }
+        else{
+            int indexOfCurrentStation = t.getIndexOfStation(stationName1);
+            //if current station in train
+            if(indexOfCurrentStation == -1)
+                continue;
+            experimental::optional<StationView> nextStationView = t.getStation(indexOfCurrentStation + 1);
+            //if train has next station
+            if(nextStationView == experimental::nullopt)
+                continue;
+            //next station of train in route
+            string nextStationName = nextStationView->getStationName();
+            if(find(route.begin(), route.end(), nextStationName) == route.end())
+                continue;
+            // recursively call function
+            //function(nextStationName, stationName2, nextStationView->getDeparture())
+        }
+    }
+}
+
+
 
 
 

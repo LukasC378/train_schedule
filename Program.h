@@ -12,12 +12,13 @@
 using namespace std;
 
 class Program {
-    map<int, Train> trains;
-    map<string, Station> stations;
-public:
-    void trains_init(const string &fileName);
+    static map<int, Train> trains;
+    static map<string, Station> stations;
 
     void train_init(const string &info);
+
+public:
+    void trains_init(const string &fileName);
 
     void station_init(const string &fileName);
 
@@ -25,11 +26,11 @@ public:
 
     int numberOfTrains();
 
-    Station getStation(const string &name);
+    static Station getStation(const string &name);
 
-    Train getTrain(const int &trainId);
+    static Train getTrain(const int &trainId);
 
-    void getRequest();
+    void getRequest(const string &stationName1, const string &stationName2, const string &timeString);
 
     string findTransport();
 

@@ -66,5 +66,12 @@ Time Time::ceil() const{
     return newTime;
 }
 
+Time Time::floor() const {
+    Time newTime;
+    newTime.hour = this->hour + 1;
+    newTime.minute = 0;
+    return newTime;
+}
+
 
 

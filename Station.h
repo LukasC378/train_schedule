@@ -16,7 +16,7 @@ using namespace std;
 
 class Station {
     string name = "EMPTY_NAME";
-    map<Time, vector<TrainView>> trainTable;
+    map<string, vector<TrainView>> trainTable;
     vector<Station*> adjacent;
 
 public:
@@ -26,6 +26,7 @@ public:
     void addAdjacent(Station *station);
     vector<Station*> getAdjacent() const { return adjacent; };
     void addTrain(const int &train, const Time &arrival, const Time &departure);
+    vector<int> getTrainsInTime(const string &timeString);
 };
 
 

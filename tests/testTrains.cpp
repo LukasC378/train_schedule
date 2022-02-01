@@ -48,37 +48,37 @@ TEST(TrainTest3, WrongTrainType){
 
 TEST(TrainTest4, ReadTestFile){
     Program p;
-    p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\testTrains.txt)");
+    p.trains_init(R"(testTrains.txt)");
     ASSERT_EQ(0, p.numberOfTrains());
 }
 
 TEST(TrainTest5, ReadTestFile){
     Program p;
-    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Kuty_Ba.txt)");
-    p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\testTrains.txt)");
+    p.station_init(R"(track_Kuty_Ba.txt)");
+    p.trains_init(R"(testTrains.txt)");
     ASSERT_EQ(1, p.numberOfTrains());
 }
 
 TEST(TrainTest6, ReadFile){
     Program p;
-    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Kuty_Ba.txt)");
-    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Ba_Trnava.txt)");
-    p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\trains.txt)");
+    p.station_init(R"(track_Kuty_Ba.txt)");
+    p.station_init(R"(track_Ba_Trnava.txt)");
+    p.trains_init(R"(trains.txt)");
     ASSERT_EQ(39, p.numberOfTrains());
 }
 
 TEST(TrainTest7, ReadFile){
     Program p;
-    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Kuty_Ba.txt)");
-    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Ba_Trnava.txt)");
-    p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\trains2.txt)");
+    p.station_init(R"(track_Kuty_Ba.txt)");
+    p.station_init(R"(track_Ba_Trnava.txt)");
+    p.trains_init(R"(trains2.txt)");
     ASSERT_EQ(39, p.numberOfTrains());
 }
 
 TEST(TrainTest8, Stations){
     Program p;
-    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Kuty_Ba.txt)");
-    p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\testTrains.txt)");
+    p.station_init(R"(track_Kuty_Ba.txt)");
+    p.trains_init(R"(testTrains.txt)");
     Train t;
     t = p.getTrain(2041);
     experimental::optional<StationView> s;
@@ -92,8 +92,8 @@ TEST(TrainTest8, Stations){
 
 TEST(TrainTest9, UnknownStation){
     Program p;
-    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Kuty_Ba.txt)");
-    p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\testTrains.txt)");
+    p.station_init(R"(track_Kuty_Ba.txt)");
+    p.trains_init(R"(testTrains.txt)");
     Train t;
     t = p.getTrain(2041);
     experimental::optional<StationView> s;
@@ -104,8 +104,8 @@ TEST(TrainTest9, UnknownStation){
 TEST(TrainTest9, UnknownTrain){
     string ex;
     Program p;
-    p.station_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\track_Kuty_Ba.txt)");
-    p.trains_init(R"(C:\Users\lucau\CLionProjects\Project\textFiles\testTrains.txt)");
+    p.station_init(R"(track_Kuty_Ba.txt)");
+    p.trains_init(R"(testTrains.txt)");
     Train t;
     try {
         t = p.getTrain(0);

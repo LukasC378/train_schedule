@@ -12,6 +12,9 @@ class TrainView {
     Time departure;
 public:
     TrainView(const int &trainId, const Time &arrival, const Time &departure);
+    int getId() const { return trainId; };
+    Time getArrival() const { return arrival; };
+    Time getDeparture() const { return departure; };
 };
 
 

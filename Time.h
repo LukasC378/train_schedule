@@ -25,6 +25,7 @@ public:
 
     string getTime() const;
     Time ceil() const;
+    Time floor() const;
 };
 
 

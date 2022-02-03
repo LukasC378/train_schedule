@@ -25,7 +25,7 @@ int Train::numberOfStations() {
     return stations.size();
 }
 
-experimental::optional<StationView> Train::getStation(const int &index) {
+experimental::optional<StationView> Train::getStationViewByIndex(const int &index) {
     if(index < 0 || index >= stations.size())
         return experimental::nullopt;
     return stations.at(index);
@@ -53,4 +53,30 @@ int Train::getIndexOfStation(const string &stationName) {
             return i;
     }
     return -1;
+}
+
+bool Train::stationInWayFrom(const string &stationName1, const string &stationName2) {
+    if(!containsStation(stationName1))
+        return false;
+    if(!containsStation(stationName2))
+        return false;
+    bool passFirstStation = false;
+    for(auto &i : stations){
+        if(i.getStationName() == stationName1)
+            passFirstStation = true;
+        if(i.getStationName() == stationName2){
+            if(passFirstStation)
+                return true;
+            return false;
+        }
+    }
+    return false;
+}
+
+experimental::optional<StationView> Train::getStationViewByName(const string &stationName) {
+    for(auto &i : stations){
+        if(i.getStationName() == stationName)
+            return i;
+    }
+    return experimental::nullopt;
 }

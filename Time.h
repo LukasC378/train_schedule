@@ -22,6 +22,7 @@ public:
     void setMinute(int m);
 
     bool operator<(const Time &t2) const;
+    bool operator==(const Time &t2) const;
 
     string getTime() const;
     Time ceil() const;

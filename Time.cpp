@@ -15,6 +15,8 @@ void Time::setMinute(int m) {
 }
 
 bool Time::operator<(const Time &t2) const {
+    if(this->hour == -999 || t2.hour == -999)
+        return true;
     if(hour > t2.hour)
         return false;
     if(minute >= t2.minute)
@@ -71,6 +73,10 @@ Time Time::floor() const {
     newTime.hour = this->hour + 1;
     newTime.minute = 0;
     return newTime;
+}
+
+bool Time::operator==(const Time &t2) const {
+    return this->getTime() == t2.getTime();
 }
 
 

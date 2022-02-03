@@ -42,7 +42,7 @@ vector<int> Station::getTrainsInTime(const string &timeString) {
     Time t2 = t.floor();
     if(trainTable.contains(t1.getTime())) {
         for (auto &i: trainTable[t1.getTime()]) {
-            if (t < i.getDeparture())
+            if (t < i.getDeparture() || t == i.getDeparture())
                 trains.push_back(i.getId());
         }
     }

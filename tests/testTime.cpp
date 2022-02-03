@@ -98,3 +98,11 @@ TEST(TimeTest9, Compare){
     cas2.putTime("5:11");
     ASSERT_TRUE(cas1 < cas2);
 }
+
+TEST(TimeTest10, Compare){
+    Time cas1;
+    Time cas2;
+    cas1.putTime("5:10");
+    cas2.putTime("5:10");
+    ASSERT_EQ(cas1, cas2);
+}

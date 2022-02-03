@@ -82,11 +82,11 @@ TEST(TrainTest8, Stations){
     Train t;
     t = p.getTrain(2041);
     experimental::optional<StationView> s;
-    s = t.getStation(0);
+    s = t.getStationViewByIndex(0);
     ASSERT_EQ(t.getId(), 2041);
     ASSERT_EQ(t.numberOfStations(), 8);
     ASSERT_EQ(s->getStationName(), "Malacky");
-    ASSERT_EQ(s->getArrival().getTime(), "null");
+    ASSERT_EQ(s->getArrival().getTime(), "7:04");
     ASSERT_EQ(s->getDeparture().getTime(), "7:04");
 }
 
@@ -97,7 +97,7 @@ TEST(TrainTest9, UnknownStation){
     Train t;
     t = p.getTrain(2041);
     experimental::optional<StationView> s;
-    s = t.getStation(-1);
+    s = t.getStationViewByIndex(-1);
     ASSERT_EQ(s, experimental::nullopt);
 }
 
@@ -114,4 +114,13 @@ TEST(TrainTest9, UnknownTrain){
         ex = e.message();
     }
     ASSERT_EQ(ex, "Unknown train 0");
+}
+
+TEST(TrainTest10, Stations){
+    Program p;
+    p.station_init(R"(track_Kuty_Ba.txt)");
+    p.trains_init(R"(testTrains.txt)");
+    Train t;
+    t = p.getTrain(2041);
+    ASSERT_EQ(t.getStations(), "Malacky->Plavecký Štvrtok->Zohor->Devínske Jazero->Devínska N.Ves->Bratislava-Lamač->Bratislava-Železná studienka->Bratislava hl.st.");
 }

@@ -111,6 +111,10 @@ void Program::train_init(const string &info) {
                 if(arrival.getTime() == "null" && departure.getTime() == "null"){
                     throw WrongTime("arrival and departure are null");
                 }
+                if(arrival.getTime() == "null")
+                    arrival = departure;
+                if(departure.getTime() == "null")
+                    departure = arrival;
                 try {
                     train.addStationView(stationName, arrival, departure);
                 }
@@ -169,10 +173,6 @@ void Program::trains_init(const string &fileName) {
     catch(exception &e){}
 }
 
-string Program::findTransport() {
-    return string();
-}
-
 Station Program::getStation(const string &name) {
     if(stations.find(name) == stations.end()){
         string ex = "Unknown station " + name;
@@ -209,6 +209,9 @@ bool backtracking(const Station station1, const Station station2, set<string> &v
 vector<string> Program::getRoute(const string &stationName1, const string &stationName2) {
 #pragma region init stations
     vector<string> route;
+    if(stationName1 == stationName2)
+        return route;
+
     Station station1;
     Station station2;
     try{
@@ -237,66 +240,138 @@ string Program::getRouteString(const string &stationName1, const string &station
     return output.substr(0, output.size() - 2);
 }
 
-bool checkTrain(const string &stationName1, const string &stationName2, Train &train, const vector<string> &route){
-    if(train.containsStation(stationName2)){
-        //code
-        return true;
-    }
-    else{
-        int indexOfCurrentStation = train.getIndexOfStation(stationName1);
-        //if current station in train
-        if(indexOfCurrentStation == -1)
-            return false;
-        experimental::optional<StationView> nextStationView = train.getStation(indexOfCurrentStation + 1);
-        //if train has next station
-        if(nextStationView == experimental::nullopt)
-            return false;
-        //next station of train in route
-        string nextStationName = nextStationView->getStationName();
-        if(find(route.begin(), route.end(), nextStationName) == route.end())
-            return false;
-        // recursively call function
-        //function(nextStationName, stationName2, nextStationView->getDeparture())
-    }
-}
-
-bool findTrains(const string &stationName1, const string &stationName2, const string &timeString, const vector<string> &route,
-                       vector<int> correctTrains){
+int Program::checkTrains(const string &stationName1, const string &stationName2, const string &timeString,
+                         const set<int> &setOfTrainsWithoutTransfer, const int &firstTrainId){
     Station station1 = Program::getStation(stationName1);
     vector<int> trainsId = station1.getTrainsInTime(timeString);
-    for(auto &id : trainsId){
+    Time maxTime("23:59");
+    int correctTrainId = 0;
+    for(auto &id : trainsId) {
+        if(id == firstTrainId)
+            continue;
+        if(setOfTrainsWithoutTransfer.contains(id))
+            continue;
         Train t = Program::getTrain(id);
-        // check train
+        if (!t.stationInWayFrom(stationName1, stationName2))
+            continue;
+        experimental::optional<StationView> s = t.getStationViewByName(stationName2);
+        if(s == experimental::nullopt)
+            continue;
+        if(s->getDeparture() < maxTime){
+            correctTrainId = t.getId();
+            maxTime = s->getDeparture();
         }
     }
+    return correctTrainId;
 }
 
-void Program::getRequest(const string &stationName1, const string &stationName2, const string &timeString) {
+pair<vector<Response>, vector<pair<Response, Response>>> Program::getRequest(const string &stationName1, const string &stationName2, const string &timeString) {
+
+#pragma region declaration/check
+    vector<Response> trainsWithoutTransfer;
+    vector<pair<Response, Response>> trainsWithTransfer;
     vector<string> route = getRoute(stationName1, stationName2);
+
+#pragma region chcek input data
+    //chcek route;
+    if(route.empty()) {
+        pair<vector<Response>, vector<pair<Response, Response>>> output{trainsWithoutTransfer, trainsWithTransfer};
+        return output;
+    }
+    //check time
+    try{
+        Time t(timeString);
+    }
+    catch (WrongTime &e){
+        pair<vector<Response>, vector<pair<Response, Response>>> output{trainsWithoutTransfer, trainsWithTransfer};
+        return output;
+    }
+#pragma endregion
+
     Station station1 = getStation(stationName1);
     vector<int> trainsId = station1.getTrainsInTime(timeString);
-    for(auto &id : trainsId){
-        Train t = getTrain(id);
-        if(t.containsStation(stationName2)){
+    set<int> setOfTrainsWithoutTransfer;
+#pragma endregion
 
-        }
-        else{
-            int indexOfCurrentStation = t.getIndexOfStation(stationName1);
-            //if current station in train
-            if(indexOfCurrentStation == -1)
+#pragma region without transfer
+    for(auto &trainId : trainsId){
+        Train train = getTrain(trainId);
+        if(train.stationInWayFrom(stationName1, stationName2)){
+            experimental::optional<StationView> stationView1;
+            experimental::optional<StationView> stationView2;
+            stationView1 = train.getStationViewByName(stationName1);
+            stationView2 = train.getStationViewByName(stationName2);
+            if(stationView1 == experimental::nullopt || stationView2 == experimental::nullopt)
                 continue;
-            experimental::optional<StationView> nextStationView = t.getStation(indexOfCurrentStation + 1);
-            //if train has next station
-            if(nextStationView == experimental::nullopt)
-                continue;
-            //next station of train in route
-            string nextStationName = nextStationView->getStationName();
-            if(find(route.begin(), route.end(), nextStationName) == route.end())
-                continue;
-            // recursively call function
-            //function(nextStationName, stationName2, nextStationView->getDeparture())
+            Response response(trainId, train.getType(), train.getName(), stationName1, stationName2,
+                              stationView1->getDeparture().getTime(), stationView2->getArrival().getTime());
+            trainsWithoutTransfer.push_back(response);
+            setOfTrainsWithoutTransfer.emplace(train.getId());
         }
     }
+#pragma endregion
+
+#pragma region with one transfer
+    for(auto &firstTrainId : trainsId){
+        Train firstTrain = getTrain(firstTrainId);
+        if(setOfTrainsWithoutTransfer.contains(firstTrainId))
+            continue;
+        int indexOfCurrentStation = firstTrain.getIndexOfStation(stationName1);
+        //if current station in train
+        if (indexOfCurrentStation == -1)
+            continue;
+        int indexOfNextStation = indexOfCurrentStation + 1;
+        experimental::optional<StationView> nextStationView = firstTrain.getStationViewByIndex(indexOfNextStation);
+        //if train has next station
+        while(true) {
+            if (nextStationView == experimental::nullopt)
+                break;
+            //next station of train in route
+            string nextStationName = nextStationView->getStationName();
+            if (find(route.begin(), route.end(), nextStationName) == route.end())
+                break;
+            // check trains in next station
+            Time keyTime;
+            if(nextStationView->getDeparture().getTime() == "null")
+                keyTime = nextStationView->getArrival();
+            else
+                keyTime = nextStationView->getDeparture();
+            int secondTrainId = checkTrains(nextStationName, stationName2, keyTime.getTime(),
+                                            setOfTrainsWithoutTransfer, firstTrainId);
+            if (secondTrainId != 0) {
+#pragma region response1
+                experimental::optional<StationView> stationView1;
+                experimental::optional<StationView> stationView2;
+                stationView1 = firstTrain.getStationViewByName(stationName1);
+                stationView2 = firstTrain.getStationViewByName(nextStationName);
+                if(stationView1 == experimental::nullopt || stationView2 == experimental::nullopt)
+                    continue;
+                Response response1(firstTrainId, firstTrain.getType(), firstTrain.getName(), stationName1, nextStationName,
+                                   stationView1->getDeparture().getTime(), stationView2->getArrival().getTime());
+#pragma endregion
+
+#pragma region response2
+                Train secondTrain;
+                secondTrain = getTrain(secondTrainId);
+                stationView1 = secondTrain.getStationViewByName(nextStationName);
+                stationView2 = secondTrain.getStationViewByName(stationName2);
+                if(stationView1 == experimental::nullopt || stationView2 == experimental::nullopt)
+                    continue;
+                Response response2(secondTrainId, secondTrain.getType(), secondTrain.getName(), nextStationName, stationName2,
+                                   stationView1->getDeparture().getTime(), stationView2->getArrival().getTime());
+#pragma endregion
+                pair<Response, Response> p{response1, response2};
+                trainsWithTransfer.push_back(p);
+                break;
+            }
+            indexOfNextStation++;
+            nextStationView = firstTrain.getStationViewByIndex(indexOfNextStation);
+        }
+    }
+#pragma endregion
+
+    pair<vector<Response>, vector<pair<Response, Response>>> output{trainsWithoutTransfer, trainsWithTransfer};
+    return output;
 }
 
 
